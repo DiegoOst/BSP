@@ -134,6 +134,7 @@ uint8_t BSP_NFCTAG_isInitialized( void )
 /**
   * @brief  Read the ID of the nfctag
   * @param  wai_id : the pointer where the who_am_i of the device is stored
+  * @param mi2cChannel : I2C channel
   * @retval NFCTAG enum status
   */
 NFCTAG_StatusTypeDef BSP_NFCTAG_ReadID( uint8_t * const wai_id, I2C * mi2cChannel )
@@ -148,6 +149,7 @@ NFCTAG_StatusTypeDef BSP_NFCTAG_ReadID( uint8_t * const wai_id, I2C * mi2cChanne
 
 /**
   * @brief  Return the size of the nfctag
+  * @param mi2cChannel : I2C channel
   * @retval Size of the NFCtag in Bytes
   */
 uint32_t BSP_NFCTAG_GetByteSize( I2C * mi2cChannel )
@@ -160,6 +162,7 @@ uint32_t BSP_NFCTAG_GetByteSize( I2C * mi2cChannel )
 /**
   * @brief  Check if the nfctag is available
   * @param  Trials : Number of trials
+  * @param mi2cChannel : I2C channel
   * @retval NFCTAG enum status
   */
 NFCTAG_StatusTypeDef BSP_NFCTAG_IsDeviceReady( const uint32_t Trials, I2C * mi2cChannel, const uint16_t TarAddr )
@@ -210,6 +213,7 @@ NFCTAG_StatusTypeDef BSP_NFCTAG_GetITStatus( uint16_t * const ITConfig, I2C * mi
   * @param  pData : pointer to store read data
   * @param  TarAddr : I2C data memory address to read
   * @param  Size : Size in bytes of the value to be read
+  * @param mi2cChannel : I2C channel
   * @retval NFCTAG enum status
   */
 NFCTAG_StatusTypeDef BSP_NFCTAG_ReadData( uint8_t * const pData, const uint16_t TarAddr, const uint16_t Size, I2C * mi2cChannel )
@@ -227,6 +231,7 @@ NFCTAG_StatusTypeDef BSP_NFCTAG_ReadData( uint8_t * const pData, const uint16_t 
   * @param  pData : pointer to the data to write
   * @param  TarAddr : I2C data memory address to write
   * @param  Size : Size in bytes of the value to be written
+  * @param mi2cChannel : I2C channel
   * @retval NFCTAG enum status
   */
 NFCTAG_StatusTypeDef BSP_NFCTAG_WriteData( const uint8_t * const pData, const uint16_t TarAddr, const uint16_t Size, I2C * mi2cChannel )
@@ -261,6 +266,7 @@ NFCTAG_StatusTypeDef BSP_NFCTAG_ReadRegister( uint8_t * const pData, const uint1
   * @param  pData : pointer to the data to write
   * @param  TarAddr : I2C register address to write
   * @param  Size : Size in bytes of the value to be written
+  * @param mi2cChannel : I2C channel
   * @retval NFCTAG enum status
   */
 NFCTAG_StatusTypeDef BSP_NFCTAG_WriteRegister( const uint8_t * const pData, const uint16_t TarAddr, const uint16_t Size, I2C * mi2cChannel )
